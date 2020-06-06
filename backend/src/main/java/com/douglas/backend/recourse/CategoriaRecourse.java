@@ -1,28 +1,26 @@
 package com.douglas.backend.recourse;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.douglas.backend.domain.Categoria;
+import com.douglas.backend.service.CategoriaService;
 
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaRecourse {
-
-	@GetMapping
-	public List<Categoria> findAll() {
-		Categoria c1 = new Categoria(1, "Informática");
-		Categoria c2 = new Categoria(2, "Cama, mesa e banho");
-		
-		List<Categoria> list = new ArrayList<Categoria>();
-		list.add(c1);
-		list.add(c2);
-		
-		return list;
+	
+	@Autowired
+	private CategoriaService service;
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<?> findOne(@PathVariable Integer id) {
+		Categoria obj = service.findOne(id);
+		return ResponseEntity.ok().body(obj);
 	}
 	
 }
