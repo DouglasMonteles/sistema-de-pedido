@@ -8,3 +8,14 @@ body {
 .bg-gray {
     background-color: #BABABA;
 }
+
+.btn-blue {
+    color: #fff;
+    transition-duration: 50ms;
+    background-color: #0166FD;
+}
+
+.btn-blue:hover {
+    color: #fff;
+    background-color: rgb(2, 81, 201);
+}
