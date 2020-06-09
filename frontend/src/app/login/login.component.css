@@ -1,0 +1,13 @@
+form {
+    margin: 5%;
+}
+
+p, a {
+    font-size: 10pt;
+}
+
+img {
+    width: 220px;
+    height: 230px;
+    margin: 10px auto;
+}
